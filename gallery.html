@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shane Faughnan</title>
+<link href="styles.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+<script src="https://kit.fontawesome.com/1b036799db.js" crossorigin="anonymous"></script>
+	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Shane Faughnan" />
+<link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light"> <a class="navbar-brand" href="index.html">Shane Faughnan</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+  
+	<div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <ul class="navbar-nav mr-auto">
+<li class="nav-item"> <a class="nav-link" href="about.html">ABOUT</a> </li>
+      <li class="nav-item"> <a class="nav-link" href="gallery.html">GALLERY</a> </li>
+		<li class="nav-item"> <a class="nav-link" href="services.html">SERVICES</a> </li>
+		<li class="nav-item"> <a class="nav-link" href="contact.html">CONTACT</a> </li>
+		</ul>
+		</div>
+	
+</nav>
+	
+    <h1>Gallery</h1>
+            <p>A collection of work I have completed </p>
+    
+        
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="video">Video&nbsp;</button>
+          <button class="filter-btn" data-filter="images">Image</button>
+          <button class="filter-btn" data-filter="graphics">Graphics</button>
+        </div>
+        
+        <div class="gallery">
+            <!-- Placeholder images using the placeholder API -->
+            <div class="gallery-item" data-category="images">
+                <img src="images/brokenboatstrip copy.jpg" alt="broken boat dock ">
+                <div class="gallery-item-info">
+                    <h3>Broken Boat Dock</h3>
+                    <p>An image of the broken Dock near me on a clear sky day </p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="images">
+                <img src="images/skypic.jpg" alt="a image of the sky">
+                <div class="gallery-item-info">
+                    <h3>Picture of the sky</h3>
+                    <p>An image of the sky on a dry summers day,</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="images">
+                <img src="images/createdincavan-judges.jpg" alt="an image of the judges deliberating ">
+                <div class="gallery-item-info">
+                    <h3>Judging</h3>
+                    <p>An image of people deliberating.</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="graphics">
+                <img src="images/Untitled-3 copy.jpg" alt="a mockup of an app that i suggested for a class">
+                <div class="gallery-item-info">
+                    <h3>Mock up </h3>
+                    <p>A Mockup of an app suggested to my class</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="graphics">
+                <img src="images/Magazinecover copy.jpg" alt="A magazine cover with Marquess brownlee">
+                <div class="gallery-item-info">
+                    <h3>Mazagine Cover</h3>
+                    <p>A magazine cover with the lastest trends including marquess brownlee</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="graphics">
+                <img src="images/All IRELAND quarter finalist copy.jpg" alt="A poster created to promote the Al Ireland Quarter final">
+                <div class="gallery-item-info">
+                    <h3>All Ireland Poster </h3>
+                    <p>A poster created for the quarter finalist </p>
+                </div>
+            </div>
+             <div class="gallery-item" data-category="graphics">
+               <img src="images/judgin-food.jpg" alt="An image for the judges tasting food for the regional final of Created in Cavan">
+                <div class="gallery-item-info">
+                    <h3>Judging </h3>
+                    <p>The Judges tasting food as part of the competition of Created in Cavan</p>
+                </div>
+            </div>
+          <div class="gallery-item" data-category="graphics">
+               <img src="images/making-langauage.jpg" alt="A student creating food for Created in Cavan">
+                <div class="gallery-item-info">
+                    <h3>Student working of there passion </h3>
+                    <p>A student creating food for  Created in Cavan </p>
+                </div>
+            </div>
+            
+        </div>
+            
+     <div class="lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <span class="lightbox-prev">&#10094;</span>
+            <span class="lightbox-next">&#10095;</span>
+          <img class="lightbox-image"  alt="Lightbox Image">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+<script>
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImage = lightbox.querySelector('.lightbox-image');
+        const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        const lightboxClose = lightbox.querySelector('.lightbox-close');
+        const lightboxPrev = lightbox.querySelector('.lightbox-prev');
+        const lightboxNext = lightbox.querySelector('.lightbox-next');
+        
+        let currentIndex = 0;
+        
+        // Open lightbox
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                currentIndex = index;
+                const img = this.querySelector('img');
+                const title = this.querySelector('h3').textContent;
+                const desc = this.querySelector('p').textContent;
+                
+                lightboxImage.src = img.src;
+                lightboxCaption.innerHTML = `<h3>${title}</h3><p>${desc}</p>`;
+                lightbox.classList.add('active');
+            });
+        });
+        
+        // Close lightbox
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+        
+        // Close lightbox on outside click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+            }
+        });
+        
+        // Navigate through images
+        lightboxPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateLightboxContent();
+        });
+        
+        lightboxNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            updateLightboxContent();
+        });
+        
+        // Update lightbox content based on current index
+        function updateLightboxContent() {
+            const item = galleryItems[currentIndex];
+            const img = item.querySelector('img');
+            const title = item.querySelector('h3').textContent;
+            const desc = item.querySelector('p').textContent;
+            
+            lightboxImage.src = img.src;
+            lightboxCaption.innerHTML = `<h3>${title}</h3><p>${desc}</p>`;
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+            } else if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                updateLightboxContent();
+            } else if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % galleryItems.length;
+                updateLightboxContent();
+            }
+        });
+    </script>
+	<!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Shane Faughnan</h3>
+                    <p>Creating impactful visuals and digital experiences through photography, video, web design, and marketing.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100091853396778" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                         <a href="https://x.com/MediaSfaughnan" class="social-icon"> <i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/mediasfaughnan/" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@Shane_Faughnan" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Derrywillow</li>
+                        <li>Dromod</li>
+                        <li>Leitrim</li>
+                        <li>N41 K726</li>
+						<li>Phone: 087 397 1465</li>
+						<li> mediabyshanefaughnan@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+					<div class="map-container">
+					  <div class="map-responsive">
+					
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9408.692357954065!2d-7.956683519363642!3d53.875350709442074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485e80f0a2731563%3A0x2600c7a7bb50b822!2sDerrywillow%2C%20Co.%20Leitrim!5e0!3m2!1sen!2sie!4v1741717774485!5m2!1sen!2sie" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>  
+              </div>
+            </div>
+					
+            <div class="copyright">
+                <p>&copy; 2025 Shane Faughnan.&nbsp; All Rights Reserved.</p>
+            </div>
+        </div>
+			</div>
+		</div>
+		
+    </footer>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap-4.4.1.js"></script>
+	
+</body>
+</html>
