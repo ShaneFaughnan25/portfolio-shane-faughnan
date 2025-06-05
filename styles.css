@@ -32,7 +32,7 @@ h2 {
 }
 
 /* Bootstrap Navbar Customization */
-.navbar-custom {
+.navbar {
             background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -45,7 +45,7 @@ h2 {
             z-index: 1000;
         }
 
-        .navbar-custom.scrolled {
+        .navbar.scrolled {
             background: rgba(255, 255, 255, 0.98) !important;
             padding: 0.5rem 0;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
